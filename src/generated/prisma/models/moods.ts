@@ -192,13 +192,13 @@ export type moodsWhereInput = {
   NOT?: Prisma.moodsWhereInput | Prisma.moodsWhereInput[]
   id?: Prisma.IntFilter<"moods"> | number
   name?: Prisma.StringFilter<"moods"> | string
-  work_moods?: Prisma.Work_moodsListRelationFilter
+  log_moods?: Prisma.Log_moodsListRelationFilter
 }
 
 export type moodsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  work_moods?: Prisma.work_moodsOrderByRelationAggregateInput
+  log_moods?: Prisma.log_moodsOrderByRelationAggregateInput
 }
 
 export type moodsWhereUniqueInput = Prisma.AtLeast<{
@@ -207,7 +207,7 @@ export type moodsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.moodsWhereInput | Prisma.moodsWhereInput[]
   OR?: Prisma.moodsWhereInput[]
   NOT?: Prisma.moodsWhereInput | Prisma.moodsWhereInput[]
-  work_moods?: Prisma.Work_moodsListRelationFilter
+  log_moods?: Prisma.Log_moodsListRelationFilter
 }, "id" | "name">
 
 export type moodsOrderByWithAggregationInput = {
@@ -230,24 +230,24 @@ export type moodsScalarWhereWithAggregatesInput = {
 
 export type moodsCreateInput = {
   name: string
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutMoodsInput
+  log_moods?: Prisma.log_moodsCreateNestedManyWithoutMoodsInput
 }
 
 export type moodsUncheckedCreateInput = {
   id?: number
   name: string
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutMoodsInput
+  log_moods?: Prisma.log_moodsUncheckedCreateNestedManyWithoutMoodsInput
 }
 
 export type moodsUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  work_moods?: Prisma.work_moodsUpdateManyWithoutMoodsNestedInput
+  log_moods?: Prisma.log_moodsUpdateManyWithoutMoodsNestedInput
 }
 
 export type moodsUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutMoodsNestedInput
+  log_moods?: Prisma.log_moodsUncheckedUpdateManyWithoutMoodsNestedInput
 }
 
 export type moodsCreateManyInput = {
@@ -292,50 +292,50 @@ export type MoodsScalarRelationFilter = {
   isNot?: Prisma.moodsWhereInput
 }
 
-export type moodsCreateNestedOneWithoutWork_moodsInput = {
-  create?: Prisma.XOR<Prisma.moodsCreateWithoutWork_moodsInput, Prisma.moodsUncheckedCreateWithoutWork_moodsInput>
-  connectOrCreate?: Prisma.moodsCreateOrConnectWithoutWork_moodsInput
+export type moodsCreateNestedOneWithoutLog_moodsInput = {
+  create?: Prisma.XOR<Prisma.moodsCreateWithoutLog_moodsInput, Prisma.moodsUncheckedCreateWithoutLog_moodsInput>
+  connectOrCreate?: Prisma.moodsCreateOrConnectWithoutLog_moodsInput
   connect?: Prisma.moodsWhereUniqueInput
 }
 
-export type moodsUpdateOneRequiredWithoutWork_moodsNestedInput = {
-  create?: Prisma.XOR<Prisma.moodsCreateWithoutWork_moodsInput, Prisma.moodsUncheckedCreateWithoutWork_moodsInput>
-  connectOrCreate?: Prisma.moodsCreateOrConnectWithoutWork_moodsInput
-  upsert?: Prisma.moodsUpsertWithoutWork_moodsInput
+export type moodsUpdateOneRequiredWithoutLog_moodsNestedInput = {
+  create?: Prisma.XOR<Prisma.moodsCreateWithoutLog_moodsInput, Prisma.moodsUncheckedCreateWithoutLog_moodsInput>
+  connectOrCreate?: Prisma.moodsCreateOrConnectWithoutLog_moodsInput
+  upsert?: Prisma.moodsUpsertWithoutLog_moodsInput
   connect?: Prisma.moodsWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.moodsUpdateToOneWithWhereWithoutWork_moodsInput, Prisma.moodsUpdateWithoutWork_moodsInput>, Prisma.moodsUncheckedUpdateWithoutWork_moodsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.moodsUpdateToOneWithWhereWithoutLog_moodsInput, Prisma.moodsUpdateWithoutLog_moodsInput>, Prisma.moodsUncheckedUpdateWithoutLog_moodsInput>
 }
 
-export type moodsCreateWithoutWork_moodsInput = {
+export type moodsCreateWithoutLog_moodsInput = {
   name: string
 }
 
-export type moodsUncheckedCreateWithoutWork_moodsInput = {
+export type moodsUncheckedCreateWithoutLog_moodsInput = {
   id?: number
   name: string
 }
 
-export type moodsCreateOrConnectWithoutWork_moodsInput = {
+export type moodsCreateOrConnectWithoutLog_moodsInput = {
   where: Prisma.moodsWhereUniqueInput
-  create: Prisma.XOR<Prisma.moodsCreateWithoutWork_moodsInput, Prisma.moodsUncheckedCreateWithoutWork_moodsInput>
+  create: Prisma.XOR<Prisma.moodsCreateWithoutLog_moodsInput, Prisma.moodsUncheckedCreateWithoutLog_moodsInput>
 }
 
-export type moodsUpsertWithoutWork_moodsInput = {
-  update: Prisma.XOR<Prisma.moodsUpdateWithoutWork_moodsInput, Prisma.moodsUncheckedUpdateWithoutWork_moodsInput>
-  create: Prisma.XOR<Prisma.moodsCreateWithoutWork_moodsInput, Prisma.moodsUncheckedCreateWithoutWork_moodsInput>
+export type moodsUpsertWithoutLog_moodsInput = {
+  update: Prisma.XOR<Prisma.moodsUpdateWithoutLog_moodsInput, Prisma.moodsUncheckedUpdateWithoutLog_moodsInput>
+  create: Prisma.XOR<Prisma.moodsCreateWithoutLog_moodsInput, Prisma.moodsUncheckedCreateWithoutLog_moodsInput>
   where?: Prisma.moodsWhereInput
 }
 
-export type moodsUpdateToOneWithWhereWithoutWork_moodsInput = {
+export type moodsUpdateToOneWithWhereWithoutLog_moodsInput = {
   where?: Prisma.moodsWhereInput
-  data: Prisma.XOR<Prisma.moodsUpdateWithoutWork_moodsInput, Prisma.moodsUncheckedUpdateWithoutWork_moodsInput>
+  data: Prisma.XOR<Prisma.moodsUpdateWithoutLog_moodsInput, Prisma.moodsUncheckedUpdateWithoutLog_moodsInput>
 }
 
-export type moodsUpdateWithoutWork_moodsInput = {
+export type moodsUpdateWithoutLog_moodsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type moodsUncheckedUpdateWithoutWork_moodsInput = {
+export type moodsUncheckedUpdateWithoutLog_moodsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -346,11 +346,11 @@ export type moodsUncheckedUpdateWithoutWork_moodsInput = {
  */
 
 export type MoodsCountOutputType = {
-  work_moods: number
+  log_moods: number
 }
 
 export type MoodsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  work_moods?: boolean | MoodsCountOutputTypeCountWork_moodsArgs
+  log_moods?: boolean | MoodsCountOutputTypeCountLog_moodsArgs
 }
 
 /**
@@ -366,15 +366,15 @@ export type MoodsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extens
 /**
  * MoodsCountOutputType without action
  */
-export type MoodsCountOutputTypeCountWork_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.work_moodsWhereInput
+export type MoodsCountOutputTypeCountLog_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.log_moodsWhereInput
 }
 
 
 export type moodsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
-  work_moods?: boolean | Prisma.moods$work_moodsArgs<ExtArgs>
+  log_moods?: boolean | Prisma.moods$log_moodsArgs<ExtArgs>
   _count?: boolean | Prisma.MoodsCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["moods"]>
 
@@ -395,7 +395,7 @@ export type moodsSelectScalar = {
 
 export type moodsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["moods"]>
 export type moodsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  work_moods?: boolean | Prisma.moods$work_moodsArgs<ExtArgs>
+  log_moods?: boolean | Prisma.moods$log_moodsArgs<ExtArgs>
   _count?: boolean | Prisma.MoodsCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type moodsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -404,7 +404,7 @@ export type moodsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type $moodsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "moods"
   objects: {
-    work_moods: Prisma.$work_moodsPayload<ExtArgs>[]
+    log_moods: Prisma.$log_moodsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -803,7 +803,7 @@ readonly fields: moodsFieldRefs;
  */
 export interface Prisma__moodsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  work_moods<T extends Prisma.moods$work_moodsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.moods$work_moodsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$work_moodsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  log_moods<T extends Prisma.moods$log_moodsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.moods$log_moodsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$log_moodsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1228,27 +1228,27 @@ export type moodsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
- * moods.work_moods
+ * moods.log_moods
  */
-export type moods$work_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type moods$log_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the work_moods
+   * Select specific fields to fetch from the log_moods
    */
-  select?: Prisma.work_moodsSelect<ExtArgs> | null
+  select?: Prisma.log_moodsSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the work_moods
+   * Omit specific fields from the log_moods
    */
-  omit?: Prisma.work_moodsOmit<ExtArgs> | null
+  omit?: Prisma.log_moodsOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.work_moodsInclude<ExtArgs> | null
-  where?: Prisma.work_moodsWhereInput
-  orderBy?: Prisma.work_moodsOrderByWithRelationInput | Prisma.work_moodsOrderByWithRelationInput[]
-  cursor?: Prisma.work_moodsWhereUniqueInput
+  include?: Prisma.log_moodsInclude<ExtArgs> | null
+  where?: Prisma.log_moodsWhereInput
+  orderBy?: Prisma.log_moodsOrderByWithRelationInput | Prisma.log_moodsOrderByWithRelationInput[]
+  cursor?: Prisma.log_moodsWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.Work_moodsScalarFieldEnum | Prisma.Work_moodsScalarFieldEnum[]
+  distinct?: Prisma.Log_moodsScalarFieldEnum | Prisma.Log_moodsScalarFieldEnum[]
 }
 
 /**

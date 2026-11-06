@@ -266,7 +266,6 @@ export type worksWhereInput = {
   created_ad?: Prisma.DateTimeFilter<"works"> | Date | string
   user_work_logs?: Prisma.User_work_logsListRelationFilter
   work_genres?: Prisma.Work_genresListRelationFilter
-  work_moods?: Prisma.Work_moodsListRelationFilter
   work_sources?: Prisma.Work_sourcesListRelationFilter
   authors?: Prisma.XOR<Prisma.AuthorsScalarRelationFilter, Prisma.authorsWhereInput>
   users?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
@@ -285,7 +284,6 @@ export type worksOrderByWithRelationInput = {
   created_ad?: Prisma.SortOrder
   user_work_logs?: Prisma.user_work_logsOrderByRelationAggregateInput
   work_genres?: Prisma.work_genresOrderByRelationAggregateInput
-  work_moods?: Prisma.work_moodsOrderByRelationAggregateInput
   work_sources?: Prisma.work_sourcesOrderByRelationAggregateInput
   authors?: Prisma.authorsOrderByWithRelationInput
   users?: Prisma.usersOrderByWithRelationInput
@@ -307,7 +305,6 @@ export type worksWhereUniqueInput = Prisma.AtLeast<{
   created_ad?: Prisma.DateTimeFilter<"works"> | Date | string
   user_work_logs?: Prisma.User_work_logsListRelationFilter
   work_genres?: Prisma.Work_genresListRelationFilter
-  work_moods?: Prisma.Work_moodsListRelationFilter
   work_sources?: Prisma.Work_sourcesListRelationFilter
   authors?: Prisma.XOR<Prisma.AuthorsScalarRelationFilter, Prisma.authorsWhereInput>
   users?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null
@@ -354,7 +351,6 @@ export type worksCreateInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
@@ -373,7 +369,6 @@ export type worksUncheckedCreateInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -385,7 +380,6 @@ export type worksUpdateInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
@@ -404,7 +398,6 @@ export type worksUncheckedUpdateInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -661,20 +654,6 @@ export type worksUpdateOneRequiredWithoutWork_genresNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.worksUpdateToOneWithWhereWithoutWork_genresInput, Prisma.worksUpdateWithoutWork_genresInput>, Prisma.worksUncheckedUpdateWithoutWork_genresInput>
 }
 
-export type worksCreateNestedOneWithoutWork_moodsInput = {
-  create?: Prisma.XOR<Prisma.worksCreateWithoutWork_moodsInput, Prisma.worksUncheckedCreateWithoutWork_moodsInput>
-  connectOrCreate?: Prisma.worksCreateOrConnectWithoutWork_moodsInput
-  connect?: Prisma.worksWhereUniqueInput
-}
-
-export type worksUpdateOneRequiredWithoutWork_moodsNestedInput = {
-  create?: Prisma.XOR<Prisma.worksCreateWithoutWork_moodsInput, Prisma.worksUncheckedCreateWithoutWork_moodsInput>
-  connectOrCreate?: Prisma.worksCreateOrConnectWithoutWork_moodsInput
-  upsert?: Prisma.worksUpsertWithoutWork_moodsInput
-  connect?: Prisma.worksWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.worksUpdateToOneWithWhereWithoutWork_moodsInput, Prisma.worksUpdateWithoutWork_moodsInput>, Prisma.worksUncheckedUpdateWithoutWork_moodsInput>
-}
-
 export type worksCreateNestedOneWithoutWork_sourcesInput = {
   create?: Prisma.XOR<Prisma.worksCreateWithoutWork_sourcesInput, Prisma.worksUncheckedCreateWithoutWork_sourcesInput>
   connectOrCreate?: Prisma.worksCreateOrConnectWithoutWork_sourcesInput
@@ -701,7 +680,6 @@ export type worksCreateWithoutAuthorsInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
   languages?: Prisma.languagesCreateNestedOneWithoutWorksInput
@@ -718,7 +696,6 @@ export type worksUncheckedCreateWithoutAuthorsInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -771,7 +748,6 @@ export type worksCreateWithoutLanguagesInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
@@ -788,7 +764,6 @@ export type worksUncheckedCreateWithoutLanguagesInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -825,7 +800,6 @@ export type worksCreateWithoutUser_work_logsInput = {
   word_count?: number | null
   created_ad?: Date | string
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
@@ -843,7 +817,6 @@ export type worksUncheckedCreateWithoutUser_work_logsInput = {
   created_by?: number | null
   created_ad?: Date | string
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -870,7 +843,6 @@ export type worksUpdateWithoutUser_work_logsInput = {
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
@@ -888,7 +860,6 @@ export type worksUncheckedUpdateWithoutUser_work_logsInput = {
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -900,7 +871,6 @@ export type worksCreateWithoutUsersInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   languages?: Prisma.languagesCreateNestedOneWithoutWorksInput
@@ -917,7 +887,6 @@ export type worksUncheckedCreateWithoutUsersInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -954,7 +923,6 @@ export type worksCreateWithoutWork_genresInput = {
   word_count?: number | null
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
@@ -972,7 +940,6 @@ export type worksUncheckedCreateWithoutWork_genresInput = {
   created_by?: number | null
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
 
@@ -999,7 +966,6 @@ export type worksUpdateWithoutWork_genresInput = {
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
@@ -1017,81 +983,6 @@ export type worksUncheckedUpdateWithoutWork_genresInput = {
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
-  work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
-}
-
-export type worksCreateWithoutWork_moodsInput = {
-  title: string
-  form: $Enums.work_form
-  synopsis?: string | null
-  word_count?: number | null
-  created_ad?: Date | string
-  user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
-  work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
-  authors: Prisma.authorsCreateNestedOneWithoutWorksInput
-  users?: Prisma.usersCreateNestedOneWithoutWorksInput
-  languages?: Prisma.languagesCreateNestedOneWithoutWorksInput
-}
-
-export type worksUncheckedCreateWithoutWork_moodsInput = {
-  id?: number
-  title: string
-  form: $Enums.work_form
-  author: number
-  original_language_id?: number | null
-  synopsis?: string | null
-  word_count?: number | null
-  created_by?: number | null
-  created_ad?: Date | string
-  user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
-  work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
-}
-
-export type worksCreateOrConnectWithoutWork_moodsInput = {
-  where: Prisma.worksWhereUniqueInput
-  create: Prisma.XOR<Prisma.worksCreateWithoutWork_moodsInput, Prisma.worksUncheckedCreateWithoutWork_moodsInput>
-}
-
-export type worksUpsertWithoutWork_moodsInput = {
-  update: Prisma.XOR<Prisma.worksUpdateWithoutWork_moodsInput, Prisma.worksUncheckedUpdateWithoutWork_moodsInput>
-  create: Prisma.XOR<Prisma.worksCreateWithoutWork_moodsInput, Prisma.worksUncheckedCreateWithoutWork_moodsInput>
-  where?: Prisma.worksWhereInput
-}
-
-export type worksUpdateToOneWithWhereWithoutWork_moodsInput = {
-  where?: Prisma.worksWhereInput
-  data: Prisma.XOR<Prisma.worksUpdateWithoutWork_moodsInput, Prisma.worksUncheckedUpdateWithoutWork_moodsInput>
-}
-
-export type worksUpdateWithoutWork_moodsInput = {
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
-  synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
-  work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
-  authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
-  users?: Prisma.usersUpdateOneWithoutWorksNestedInput
-  languages?: Prisma.languagesUpdateOneWithoutWorksNestedInput
-}
-
-export type worksUncheckedUpdateWithoutWork_moodsInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
-  author?: Prisma.IntFieldUpdateOperationsInput | number
-  original_language_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
-  work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -1103,7 +994,6 @@ export type worksCreateWithoutWork_sourcesInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
   users?: Prisma.usersCreateNestedOneWithoutWorksInput
   languages?: Prisma.languagesCreateNestedOneWithoutWorksInput
@@ -1121,7 +1011,6 @@ export type worksUncheckedCreateWithoutWork_sourcesInput = {
   created_ad?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
-  work_moods?: Prisma.work_moodsUncheckedCreateNestedManyWithoutWorksInput
 }
 
 export type worksCreateOrConnectWithoutWork_sourcesInput = {
@@ -1148,7 +1037,6 @@ export type worksUpdateWithoutWork_sourcesInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
   languages?: Prisma.languagesUpdateOneWithoutWorksNestedInput
@@ -1166,7 +1054,6 @@ export type worksUncheckedUpdateWithoutWork_sourcesInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
 }
 
 export type worksCreateManyAuthorsInput = {
@@ -1188,7 +1075,6 @@ export type worksUpdateWithoutAuthorsInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
   languages?: Prisma.languagesUpdateOneWithoutWorksNestedInput
@@ -1205,7 +1091,6 @@ export type worksUncheckedUpdateWithoutAuthorsInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -1239,7 +1124,6 @@ export type worksUpdateWithoutLanguagesInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   users?: Prisma.usersUpdateOneWithoutWorksNestedInput
@@ -1256,7 +1140,6 @@ export type worksUncheckedUpdateWithoutLanguagesInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -1290,7 +1173,6 @@ export type worksUpdateWithoutUsersInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
   languages?: Prisma.languagesUpdateOneWithoutWorksNestedInput
@@ -1307,7 +1189,6 @@ export type worksUncheckedUpdateWithoutUsersInput = {
   created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
-  work_moods?: Prisma.work_moodsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
 
@@ -1330,14 +1211,12 @@ export type worksUncheckedUpdateManyWithoutUsersInput = {
 export type WorksCountOutputType = {
   user_work_logs: number
   work_genres: number
-  work_moods: number
   work_sources: number
 }
 
 export type WorksCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user_work_logs?: boolean | WorksCountOutputTypeCountUser_work_logsArgs
   work_genres?: boolean | WorksCountOutputTypeCountWork_genresArgs
-  work_moods?: boolean | WorksCountOutputTypeCountWork_moodsArgs
   work_sources?: boolean | WorksCountOutputTypeCountWork_sourcesArgs
 }
 
@@ -1368,13 +1247,6 @@ export type WorksCountOutputTypeCountWork_genresArgs<ExtArgs extends runtime.Typ
 /**
  * WorksCountOutputType without action
  */
-export type WorksCountOutputTypeCountWork_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.work_moodsWhereInput
-}
-
-/**
- * WorksCountOutputType without action
- */
 export type WorksCountOutputTypeCountWork_sourcesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.work_sourcesWhereInput
 }
@@ -1392,7 +1264,6 @@ export type worksSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   created_ad?: boolean
   user_work_logs?: boolean | Prisma.works$user_work_logsArgs<ExtArgs>
   work_genres?: boolean | Prisma.works$work_genresArgs<ExtArgs>
-  work_moods?: boolean | Prisma.works$work_moodsArgs<ExtArgs>
   work_sources?: boolean | Prisma.works$work_sourcesArgs<ExtArgs>
   authors?: boolean | Prisma.authorsDefaultArgs<ExtArgs>
   users?: boolean | Prisma.works$usersArgs<ExtArgs>
@@ -1446,7 +1317,6 @@ export type worksOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
 export type worksInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user_work_logs?: boolean | Prisma.works$user_work_logsArgs<ExtArgs>
   work_genres?: boolean | Prisma.works$work_genresArgs<ExtArgs>
-  work_moods?: boolean | Prisma.works$work_moodsArgs<ExtArgs>
   work_sources?: boolean | Prisma.works$work_sourcesArgs<ExtArgs>
   authors?: boolean | Prisma.authorsDefaultArgs<ExtArgs>
   users?: boolean | Prisma.works$usersArgs<ExtArgs>
@@ -1469,7 +1339,6 @@ export type $worksPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     user_work_logs: Prisma.$user_work_logsPayload<ExtArgs>[]
     work_genres: Prisma.$work_genresPayload<ExtArgs>[]
-    work_moods: Prisma.$work_moodsPayload<ExtArgs>[]
     work_sources: Prisma.$work_sourcesPayload<ExtArgs>[]
     authors: Prisma.$authorsPayload<ExtArgs>
     users: Prisma.$usersPayload<ExtArgs> | null
@@ -1881,7 +1750,6 @@ export interface Prisma__worksClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user_work_logs<T extends Prisma.works$user_work_logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.works$user_work_logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$user_work_logsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   work_genres<T extends Prisma.works$work_genresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.works$work_genresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$work_genresPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  work_moods<T extends Prisma.works$work_moodsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.works$work_moodsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$work_moodsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   work_sources<T extends Prisma.works$work_sourcesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.works$work_sourcesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$work_sourcesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   authors<T extends Prisma.authorsDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.authorsDefaultArgs<ExtArgs>>): Prisma.Prisma__authorsClient<runtime.Types.Result.GetResult<Prisma.$authorsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   users<T extends Prisma.works$usersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.works$usersArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -2370,30 +2238,6 @@ export type works$work_genresArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.Work_genresScalarFieldEnum | Prisma.Work_genresScalarFieldEnum[]
-}
-
-/**
- * works.work_moods
- */
-export type works$work_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the work_moods
-   */
-  select?: Prisma.work_moodsSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the work_moods
-   */
-  omit?: Prisma.work_moodsOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.work_moodsInclude<ExtArgs> | null
-  where?: Prisma.work_moodsWhereInput
-  orderBy?: Prisma.work_moodsOrderByWithRelationInput | Prisma.work_moodsOrderByWithRelationInput[]
-  cursor?: Prisma.work_moodsWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.Work_moodsScalarFieldEnum | Prisma.Work_moodsScalarFieldEnum[]
 }
 
 /**

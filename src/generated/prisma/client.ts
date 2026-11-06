@@ -85,11 +85,6 @@ export type users = Prisma.usersModel
  */
 export type work_genres = Prisma.work_genresModel
 /**
- * Model work_moods
- * 
- */
-export type work_moods = Prisma.work_moodsModel
-/**
  * Model work_sources
  * 
  */
@@ -99,3 +94,8 @@ export type work_sources = Prisma.work_sourcesModel
  * 
  */
 export type works = Prisma.worksModel
+/**
+ * Model log_moods
+ * 
+ */
+export type log_moods = Prisma.log_moodsModel

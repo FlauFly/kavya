@@ -406,9 +406,9 @@ export const ModelName = {
   user_work_logs: 'user_work_logs',
   users: 'users',
   work_genres: 'work_genres',
-  work_moods: 'work_moods',
   work_sources: 'work_sources',
-  works: 'works'
+  works: 'works',
+  log_moods: 'log_moods'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -424,7 +424,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "authors" | "genres" | "languages" | "log_languages" | "moods" | "sources" | "user_work_logs" | "users" | "work_genres" | "work_moods" | "work_sources" | "works"
+    modelProps: "authors" | "genres" | "languages" | "log_languages" | "moods" | "sources" | "user_work_logs" | "users" | "work_genres" | "work_sources" | "works" | "log_moods"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1094,80 +1094,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    work_moods: {
-      payload: Prisma.$work_moodsPayload<ExtArgs>
-      fields: Prisma.work_moodsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.work_moodsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.work_moodsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        findFirst: {
-          args: Prisma.work_moodsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.work_moodsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        findMany: {
-          args: Prisma.work_moodsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>[]
-        }
-        create: {
-          args: Prisma.work_moodsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        createMany: {
-          args: Prisma.work_moodsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.work_moodsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>[]
-        }
-        delete: {
-          args: Prisma.work_moodsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        update: {
-          args: Prisma.work_moodsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        deleteMany: {
-          args: Prisma.work_moodsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.work_moodsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.work_moodsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>[]
-        }
-        upsert: {
-          args: Prisma.work_moodsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$work_moodsPayload>
-        }
-        aggregate: {
-          args: Prisma.Work_moodsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateWork_moods>
-        }
-        groupBy: {
-          args: Prisma.work_moodsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Work_moodsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.work_moodsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Work_moodsCountAggregateOutputType> | number
-        }
-      }
-    }
     work_sources: {
       payload: Prisma.$work_sourcesPayload<ExtArgs>
       fields: Prisma.work_sourcesFieldRefs
@@ -1316,6 +1242,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    log_moods: {
+      payload: Prisma.$log_moodsPayload<ExtArgs>
+      fields: Prisma.log_moodsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.log_moodsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.log_moodsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        findFirst: {
+          args: Prisma.log_moodsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.log_moodsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        findMany: {
+          args: Prisma.log_moodsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>[]
+        }
+        create: {
+          args: Prisma.log_moodsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        createMany: {
+          args: Prisma.log_moodsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.log_moodsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>[]
+        }
+        delete: {
+          args: Prisma.log_moodsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        update: {
+          args: Prisma.log_moodsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        deleteMany: {
+          args: Prisma.log_moodsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.log_moodsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.log_moodsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>[]
+        }
+        upsert: {
+          args: Prisma.log_moodsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$log_moodsPayload>
+        }
+        aggregate: {
+          args: Prisma.Log_moodsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLog_moods>
+        }
+        groupBy: {
+          args: Prisma.log_moodsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Log_moodsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.log_moodsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Log_moodsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1415,7 +1415,8 @@ export const User_work_logsScalarFieldEnum = {
   work_id: 'work_id',
   status: 'status',
   read_at: 'read_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  review: 'review'
 } as const
 
 export type User_work_logsScalarFieldEnum = (typeof User_work_logsScalarFieldEnum)[keyof typeof User_work_logsScalarFieldEnum]
@@ -1439,14 +1440,6 @@ export const Work_genresScalarFieldEnum = {
 export type Work_genresScalarFieldEnum = (typeof Work_genresScalarFieldEnum)[keyof typeof Work_genresScalarFieldEnum]
 
 
-export const Work_moodsScalarFieldEnum = {
-  work_id: 'work_id',
-  mood_id: 'mood_id'
-} as const
-
-export type Work_moodsScalarFieldEnum = (typeof Work_moodsScalarFieldEnum)[keyof typeof Work_moodsScalarFieldEnum]
-
-
 export const Work_sourcesScalarFieldEnum = {
   work_id: 'work_id',
   source_id: 'source_id'
@@ -1468,6 +1461,14 @@ export const WorksScalarFieldEnum = {
 } as const
 
 export type WorksScalarFieldEnum = (typeof WorksScalarFieldEnum)[keyof typeof WorksScalarFieldEnum]
+
+
+export const Log_moodsScalarFieldEnum = {
+  log_id: 'log_id',
+  mood_id: 'mood_id'
+} as const
+
+export type Log_moodsScalarFieldEnum = (typeof Log_moodsScalarFieldEnum)[keyof typeof Log_moodsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1757,9 +1758,9 @@ export type GlobalOmitConfig = {
   user_work_logs?: Prisma.user_work_logsOmit
   users?: Prisma.usersOmit
   work_genres?: Prisma.work_genresOmit
-  work_moods?: Prisma.work_moodsOmit
   work_sources?: Prisma.work_sourcesOmit
   works?: Prisma.worksOmit
+  log_moods?: Prisma.log_moodsOmit
 }
 
 /* Types for Logging */

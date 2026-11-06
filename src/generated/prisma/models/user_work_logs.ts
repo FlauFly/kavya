@@ -45,6 +45,7 @@ export type User_work_logsMinAggregateOutputType = {
   status: $Enums.log_status | null
   read_at: Date | null
   created_at: Date | null
+  review: string | null
 }
 
 export type User_work_logsMaxAggregateOutputType = {
@@ -54,6 +55,7 @@ export type User_work_logsMaxAggregateOutputType = {
   status: $Enums.log_status | null
   read_at: Date | null
   created_at: Date | null
+  review: string | null
 }
 
 export type User_work_logsCountAggregateOutputType = {
@@ -63,6 +65,7 @@ export type User_work_logsCountAggregateOutputType = {
   status: number
   read_at: number
   created_at: number
+  review: number
   _all: number
 }
 
@@ -86,6 +89,7 @@ export type User_work_logsMinAggregateInputType = {
   status?: true
   read_at?: true
   created_at?: true
+  review?: true
 }
 
 export type User_work_logsMaxAggregateInputType = {
@@ -95,6 +99,7 @@ export type User_work_logsMaxAggregateInputType = {
   status?: true
   read_at?: true
   created_at?: true
+  review?: true
 }
 
 export type User_work_logsCountAggregateInputType = {
@@ -104,6 +109,7 @@ export type User_work_logsCountAggregateInputType = {
   status?: true
   read_at?: true
   created_at?: true
+  review?: true
   _all?: true
 }
 
@@ -200,6 +206,7 @@ export type User_work_logsGroupByOutputType = {
   status: $Enums.log_status
   read_at: Date | null
   created_at: Date
+  review: string | null
   _count: User_work_logsCountAggregateOutputType | null
   _avg: User_work_logsAvgAggregateOutputType | null
   _sum: User_work_logsSumAggregateOutputType | null
@@ -232,7 +239,9 @@ export type user_work_logsWhereInput = {
   status?: Prisma.Enumlog_statusFilter<"user_work_logs"> | $Enums.log_status
   read_at?: Prisma.DateTimeNullableFilter<"user_work_logs"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"user_work_logs"> | Date | string
+  review?: Prisma.StringNullableFilter<"user_work_logs"> | string | null
   log_languages?: Prisma.Log_languagesListRelationFilter
+  log_moods?: Prisma.Log_moodsListRelationFilter
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   works?: Prisma.XOR<Prisma.WorksScalarRelationFilter, Prisma.worksWhereInput>
 }
@@ -244,7 +253,9 @@ export type user_work_logsOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   read_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  review?: Prisma.SortOrderInput | Prisma.SortOrder
   log_languages?: Prisma.log_languagesOrderByRelationAggregateInput
+  log_moods?: Prisma.log_moodsOrderByRelationAggregateInput
   users?: Prisma.usersOrderByWithRelationInput
   works?: Prisma.worksOrderByWithRelationInput
 }
@@ -260,7 +271,9 @@ export type user_work_logsWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.Enumlog_statusFilter<"user_work_logs"> | $Enums.log_status
   read_at?: Prisma.DateTimeNullableFilter<"user_work_logs"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"user_work_logs"> | Date | string
+  review?: Prisma.StringNullableFilter<"user_work_logs"> | string | null
   log_languages?: Prisma.Log_languagesListRelationFilter
+  log_moods?: Prisma.Log_moodsListRelationFilter
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   works?: Prisma.XOR<Prisma.WorksScalarRelationFilter, Prisma.worksWhereInput>
 }, "id" | "user_id_work_id">
@@ -272,6 +285,7 @@ export type user_work_logsOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   read_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  review?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.user_work_logsCountOrderByAggregateInput
   _avg?: Prisma.user_work_logsAvgOrderByAggregateInput
   _max?: Prisma.user_work_logsMaxOrderByAggregateInput
@@ -289,13 +303,16 @@ export type user_work_logsScalarWhereWithAggregatesInput = {
   status?: Prisma.Enumlog_statusWithAggregatesFilter<"user_work_logs"> | $Enums.log_status
   read_at?: Prisma.DateTimeNullableWithAggregatesFilter<"user_work_logs"> | Date | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"user_work_logs"> | Date | string
+  review?: Prisma.StringNullableWithAggregatesFilter<"user_work_logs"> | string | null
 }
 
 export type user_work_logsCreateInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsCreateNestedManyWithoutUser_work_logsInput
   users: Prisma.usersCreateNestedOneWithoutUser_work_logsInput
   works: Prisma.worksCreateNestedOneWithoutUser_work_logsInput
 }
@@ -307,14 +324,18 @@ export type user_work_logsUncheckedCreateInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesUncheckedCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsUncheckedCreateNestedManyWithoutUser_work_logsInput
 }
 
 export type user_work_logsUpdateInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUpdateManyWithoutUser_work_logsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutUser_work_logsNestedInput
   works?: Prisma.worksUpdateOneRequiredWithoutUser_work_logsNestedInput
 }
@@ -326,7 +347,9 @@ export type user_work_logsUncheckedUpdateInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUncheckedUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUncheckedUpdateManyWithoutUser_work_logsNestedInput
 }
 
 export type user_work_logsCreateManyInput = {
@@ -336,12 +359,14 @@ export type user_work_logsCreateManyInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
 }
 
 export type user_work_logsUpdateManyMutationInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type user_work_logsUncheckedUpdateManyInput = {
@@ -351,6 +376,7 @@ export type user_work_logsUncheckedUpdateManyInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type User_work_logsScalarRelationFilter = {
@@ -370,6 +396,7 @@ export type user_work_logsCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   read_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  review?: Prisma.SortOrder
 }
 
 export type user_work_logsAvgOrderByAggregateInput = {
@@ -385,6 +412,7 @@ export type user_work_logsMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   read_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  review?: Prisma.SortOrder
 }
 
 export type user_work_logsMinOrderByAggregateInput = {
@@ -394,6 +422,7 @@ export type user_work_logsMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   read_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  review?: Prisma.SortOrder
 }
 
 export type user_work_logsSumOrderByAggregateInput = {
@@ -518,10 +547,26 @@ export type user_work_logsUncheckedUpdateManyWithoutWorksNestedInput = {
   deleteMany?: Prisma.user_work_logsScalarWhereInput | Prisma.user_work_logsScalarWhereInput[]
 }
 
+export type user_work_logsCreateNestedOneWithoutLog_moodsInput = {
+  create?: Prisma.XOR<Prisma.user_work_logsCreateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedCreateWithoutLog_moodsInput>
+  connectOrCreate?: Prisma.user_work_logsCreateOrConnectWithoutLog_moodsInput
+  connect?: Prisma.user_work_logsWhereUniqueInput
+}
+
+export type user_work_logsUpdateOneRequiredWithoutLog_moodsNestedInput = {
+  create?: Prisma.XOR<Prisma.user_work_logsCreateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedCreateWithoutLog_moodsInput>
+  connectOrCreate?: Prisma.user_work_logsCreateOrConnectWithoutLog_moodsInput
+  upsert?: Prisma.user_work_logsUpsertWithoutLog_moodsInput
+  connect?: Prisma.user_work_logsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.user_work_logsUpdateToOneWithWhereWithoutLog_moodsInput, Prisma.user_work_logsUpdateWithoutLog_moodsInput>, Prisma.user_work_logsUncheckedUpdateWithoutLog_moodsInput>
+}
+
 export type user_work_logsCreateWithoutLog_languagesInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
+  log_moods?: Prisma.log_moodsCreateNestedManyWithoutUser_work_logsInput
   users: Prisma.usersCreateNestedOneWithoutUser_work_logsInput
   works: Prisma.worksCreateNestedOneWithoutUser_work_logsInput
 }
@@ -533,6 +578,8 @@ export type user_work_logsUncheckedCreateWithoutLog_languagesInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
+  log_moods?: Prisma.log_moodsUncheckedCreateNestedManyWithoutUser_work_logsInput
 }
 
 export type user_work_logsCreateOrConnectWithoutLog_languagesInput = {
@@ -555,6 +602,8 @@ export type user_work_logsUpdateWithoutLog_languagesInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  log_moods?: Prisma.log_moodsUpdateManyWithoutUser_work_logsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutUser_work_logsNestedInput
   works?: Prisma.worksUpdateOneRequiredWithoutUser_work_logsNestedInput
 }
@@ -566,13 +615,17 @@ export type user_work_logsUncheckedUpdateWithoutLog_languagesInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  log_moods?: Prisma.log_moodsUncheckedUpdateManyWithoutUser_work_logsNestedInput
 }
 
 export type user_work_logsCreateWithoutUsersInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsCreateNestedManyWithoutUser_work_logsInput
   works: Prisma.worksCreateNestedOneWithoutUser_work_logsInput
 }
 
@@ -582,7 +635,9 @@ export type user_work_logsUncheckedCreateWithoutUsersInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesUncheckedCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsUncheckedCreateNestedManyWithoutUser_work_logsInput
 }
 
 export type user_work_logsCreateOrConnectWithoutUsersInput = {
@@ -621,13 +676,16 @@ export type user_work_logsScalarWhereInput = {
   status?: Prisma.Enumlog_statusFilter<"user_work_logs"> | $Enums.log_status
   read_at?: Prisma.DateTimeNullableFilter<"user_work_logs"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"user_work_logs"> | Date | string
+  review?: Prisma.StringNullableFilter<"user_work_logs"> | string | null
 }
 
 export type user_work_logsCreateWithoutWorksInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsCreateNestedManyWithoutUser_work_logsInput
   users: Prisma.usersCreateNestedOneWithoutUser_work_logsInput
 }
 
@@ -637,7 +695,9 @@ export type user_work_logsUncheckedCreateWithoutWorksInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
   log_languages?: Prisma.log_languagesUncheckedCreateNestedManyWithoutUser_work_logsInput
+  log_moods?: Prisma.log_moodsUncheckedCreateNestedManyWithoutUser_work_logsInput
 }
 
 export type user_work_logsCreateOrConnectWithoutWorksInput = {
@@ -666,19 +726,80 @@ export type user_work_logsUpdateManyWithWhereWithoutWorksInput = {
   data: Prisma.XOR<Prisma.user_work_logsUpdateManyMutationInput, Prisma.user_work_logsUncheckedUpdateManyWithoutWorksInput>
 }
 
+export type user_work_logsCreateWithoutLog_moodsInput = {
+  status?: $Enums.log_status
+  read_at?: Date | string | null
+  created_at?: Date | string
+  review?: string | null
+  log_languages?: Prisma.log_languagesCreateNestedManyWithoutUser_work_logsInput
+  users: Prisma.usersCreateNestedOneWithoutUser_work_logsInput
+  works: Prisma.worksCreateNestedOneWithoutUser_work_logsInput
+}
+
+export type user_work_logsUncheckedCreateWithoutLog_moodsInput = {
+  id?: number
+  user_id: number
+  work_id: number
+  status?: $Enums.log_status
+  read_at?: Date | string | null
+  created_at?: Date | string
+  review?: string | null
+  log_languages?: Prisma.log_languagesUncheckedCreateNestedManyWithoutUser_work_logsInput
+}
+
+export type user_work_logsCreateOrConnectWithoutLog_moodsInput = {
+  where: Prisma.user_work_logsWhereUniqueInput
+  create: Prisma.XOR<Prisma.user_work_logsCreateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedCreateWithoutLog_moodsInput>
+}
+
+export type user_work_logsUpsertWithoutLog_moodsInput = {
+  update: Prisma.XOR<Prisma.user_work_logsUpdateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedUpdateWithoutLog_moodsInput>
+  create: Prisma.XOR<Prisma.user_work_logsCreateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedCreateWithoutLog_moodsInput>
+  where?: Prisma.user_work_logsWhereInput
+}
+
+export type user_work_logsUpdateToOneWithWhereWithoutLog_moodsInput = {
+  where?: Prisma.user_work_logsWhereInput
+  data: Prisma.XOR<Prisma.user_work_logsUpdateWithoutLog_moodsInput, Prisma.user_work_logsUncheckedUpdateWithoutLog_moodsInput>
+}
+
+export type user_work_logsUpdateWithoutLog_moodsInput = {
+  status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
+  read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  log_languages?: Prisma.log_languagesUpdateManyWithoutUser_work_logsNestedInput
+  users?: Prisma.usersUpdateOneRequiredWithoutUser_work_logsNestedInput
+  works?: Prisma.worksUpdateOneRequiredWithoutUser_work_logsNestedInput
+}
+
+export type user_work_logsUncheckedUpdateWithoutLog_moodsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  work_id?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
+  read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  log_languages?: Prisma.log_languagesUncheckedUpdateManyWithoutUser_work_logsNestedInput
+}
+
 export type user_work_logsCreateManyUsersInput = {
   id?: number
   work_id: number
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
 }
 
 export type user_work_logsUpdateWithoutUsersInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUpdateManyWithoutUser_work_logsNestedInput
   works?: Prisma.worksUpdateOneRequiredWithoutUser_work_logsNestedInput
 }
 
@@ -688,7 +809,9 @@ export type user_work_logsUncheckedUpdateWithoutUsersInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUncheckedUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUncheckedUpdateManyWithoutUser_work_logsNestedInput
 }
 
 export type user_work_logsUncheckedUpdateManyWithoutUsersInput = {
@@ -697,6 +820,7 @@ export type user_work_logsUncheckedUpdateManyWithoutUsersInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type user_work_logsCreateManyWorksInput = {
@@ -705,13 +829,16 @@ export type user_work_logsCreateManyWorksInput = {
   status?: $Enums.log_status
   read_at?: Date | string | null
   created_at?: Date | string
+  review?: string | null
 }
 
 export type user_work_logsUpdateWithoutWorksInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUpdateManyWithoutUser_work_logsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutUser_work_logsNestedInput
 }
 
@@ -721,7 +848,9 @@ export type user_work_logsUncheckedUpdateWithoutWorksInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   log_languages?: Prisma.log_languagesUncheckedUpdateManyWithoutUser_work_logsNestedInput
+  log_moods?: Prisma.log_moodsUncheckedUpdateManyWithoutUser_work_logsNestedInput
 }
 
 export type user_work_logsUncheckedUpdateManyWithoutWorksInput = {
@@ -730,6 +859,7 @@ export type user_work_logsUncheckedUpdateManyWithoutWorksInput = {
   status?: Prisma.Enumlog_statusFieldUpdateOperationsInput | $Enums.log_status
   read_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  review?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -739,10 +869,12 @@ export type user_work_logsUncheckedUpdateManyWithoutWorksInput = {
 
 export type User_work_logsCountOutputType = {
   log_languages: number
+  log_moods: number
 }
 
 export type User_work_logsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   log_languages?: boolean | User_work_logsCountOutputTypeCountLog_languagesArgs
+  log_moods?: boolean | User_work_logsCountOutputTypeCountLog_moodsArgs
 }
 
 /**
@@ -762,6 +894,13 @@ export type User_work_logsCountOutputTypeCountLog_languagesArgs<ExtArgs extends 
   where?: Prisma.log_languagesWhereInput
 }
 
+/**
+ * User_work_logsCountOutputType without action
+ */
+export type User_work_logsCountOutputTypeCountLog_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.log_moodsWhereInput
+}
+
 
 export type user_work_logsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -770,7 +909,9 @@ export type user_work_logsSelect<ExtArgs extends runtime.Types.Extensions.Intern
   status?: boolean
   read_at?: boolean
   created_at?: boolean
+  review?: boolean
   log_languages?: boolean | Prisma.user_work_logs$log_languagesArgs<ExtArgs>
+  log_moods?: boolean | Prisma.user_work_logs$log_moodsArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   works?: boolean | Prisma.worksDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.User_work_logsCountOutputTypeDefaultArgs<ExtArgs>
@@ -783,6 +924,7 @@ export type user_work_logsSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   status?: boolean
   read_at?: boolean
   created_at?: boolean
+  review?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   works?: boolean | Prisma.worksDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user_work_logs"]>
@@ -794,6 +936,7 @@ export type user_work_logsSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   status?: boolean
   read_at?: boolean
   created_at?: boolean
+  review?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   works?: boolean | Prisma.worksDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user_work_logs"]>
@@ -805,11 +948,13 @@ export type user_work_logsSelectScalar = {
   status?: boolean
   read_at?: boolean
   created_at?: boolean
+  review?: boolean
 }
 
-export type user_work_logsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "work_id" | "status" | "read_at" | "created_at", ExtArgs["result"]["user_work_logs"]>
+export type user_work_logsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "work_id" | "status" | "read_at" | "created_at" | "review", ExtArgs["result"]["user_work_logs"]>
 export type user_work_logsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   log_languages?: boolean | Prisma.user_work_logs$log_languagesArgs<ExtArgs>
+  log_moods?: boolean | Prisma.user_work_logs$log_moodsArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   works?: boolean | Prisma.worksDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.User_work_logsCountOutputTypeDefaultArgs<ExtArgs>
@@ -827,6 +972,7 @@ export type $user_work_logsPayload<ExtArgs extends runtime.Types.Extensions.Inte
   name: "user_work_logs"
   objects: {
     log_languages: Prisma.$log_languagesPayload<ExtArgs>[]
+    log_moods: Prisma.$log_moodsPayload<ExtArgs>[]
     users: Prisma.$usersPayload<ExtArgs>
     works: Prisma.$worksPayload<ExtArgs>
   }
@@ -837,6 +983,7 @@ export type $user_work_logsPayload<ExtArgs extends runtime.Types.Extensions.Inte
     status: $Enums.log_status
     read_at: Date | null
     created_at: Date
+    review: string | null
   }, ExtArgs["result"]["user_work_logs"]>
   composites: {}
 }
@@ -1232,6 +1379,7 @@ readonly fields: user_work_logsFieldRefs;
 export interface Prisma__user_work_logsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   log_languages<T extends Prisma.user_work_logs$log_languagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user_work_logs$log_languagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$log_languagesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  log_moods<T extends Prisma.user_work_logs$log_moodsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user_work_logs$log_moodsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$log_moodsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   users<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   works<T extends Prisma.worksDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.worksDefaultArgs<ExtArgs>>): Prisma.Prisma__worksClient<runtime.Types.Result.GetResult<Prisma.$worksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1269,6 +1417,7 @@ export interface user_work_logsFieldRefs {
   readonly status: Prisma.FieldRef<"user_work_logs", 'log_status'>
   readonly read_at: Prisma.FieldRef<"user_work_logs", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"user_work_logs", 'DateTime'>
+  readonly review: Prisma.FieldRef<"user_work_logs", 'String'>
 }
     
 
@@ -1691,6 +1840,30 @@ export type user_work_logs$log_languagesArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.Log_languagesScalarFieldEnum | Prisma.Log_languagesScalarFieldEnum[]
+}
+
+/**
+ * user_work_logs.log_moods
+ */
+export type user_work_logs$log_moodsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the log_moods
+   */
+  select?: Prisma.log_moodsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the log_moods
+   */
+  omit?: Prisma.log_moodsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.log_moodsInclude<ExtArgs> | null
+  where?: Prisma.log_moodsWhereInput
+  orderBy?: Prisma.log_moodsOrderByWithRelationInput | Prisma.log_moodsOrderByWithRelationInput[]
+  cursor?: Prisma.log_moodsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Log_moodsScalarFieldEnum | Prisma.Log_moodsScalarFieldEnum[]
 }
 
 /**

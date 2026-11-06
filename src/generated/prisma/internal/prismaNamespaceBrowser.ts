@@ -60,9 +60,9 @@ export const ModelName = {
   user_work_logs: 'user_work_logs',
   users: 'users',
   work_genres: 'work_genres',
-  work_moods: 'work_moods',
   work_sources: 'work_sources',
-  works: 'works'
+  works: 'works',
+  log_moods: 'log_moods'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -141,7 +141,8 @@ export const User_work_logsScalarFieldEnum = {
   work_id: 'work_id',
   status: 'status',
   read_at: 'read_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  review: 'review'
 } as const
 
 export type User_work_logsScalarFieldEnum = (typeof User_work_logsScalarFieldEnum)[keyof typeof User_work_logsScalarFieldEnum]
@@ -165,14 +166,6 @@ export const Work_genresScalarFieldEnum = {
 export type Work_genresScalarFieldEnum = (typeof Work_genresScalarFieldEnum)[keyof typeof Work_genresScalarFieldEnum]
 
 
-export const Work_moodsScalarFieldEnum = {
-  work_id: 'work_id',
-  mood_id: 'mood_id'
-} as const
-
-export type Work_moodsScalarFieldEnum = (typeof Work_moodsScalarFieldEnum)[keyof typeof Work_moodsScalarFieldEnum]
-
-
 export const Work_sourcesScalarFieldEnum = {
   work_id: 'work_id',
   source_id: 'source_id'
@@ -194,6 +187,14 @@ export const WorksScalarFieldEnum = {
 } as const
 
 export type WorksScalarFieldEnum = (typeof WorksScalarFieldEnum)[keyof typeof WorksScalarFieldEnum]
+
+
+export const Log_moodsScalarFieldEnum = {
+  log_id: 'log_id',
+  mood_id: 'mood_id'
+} as const
+
+export type Log_moodsScalarFieldEnum = (typeof Log_moodsScalarFieldEnum)[keyof typeof Log_moodsScalarFieldEnum]
 
 
 export const SortOrder = {
