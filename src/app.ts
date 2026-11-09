@@ -5,6 +5,7 @@ import { authorsRouter } from "./routes/authors";
 import { sourcesRouter } from "./routes/sources";
 import { moodsRouter } from "./routes/moods";
 import { languagesRouter } from "./routes/languages";
+import { userWorkLogsRouter } from "./routes/user-work-logs";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use("/authors", authorsRouter);
 app.use("/sources", sourcesRouter);
 app.use("/moods", moodsRouter);
 app.use("/languages", languagesRouter);
+app.use("/user-work-logs", userWorkLogsRouter);
 
 // 404 handler, no routes find
 app.use((req, res) => {

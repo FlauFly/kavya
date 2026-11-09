@@ -2,8 +2,6 @@ import { Router } from "express";
 import { prisma } from "../db";
 import { createWorkSchema } from "../schemas/work";
 import z from "zod";
-import { title } from "node:process";
-import { error } from "node:console";
 
 const router = Router();
 
