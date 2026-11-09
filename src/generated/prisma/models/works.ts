@@ -51,7 +51,7 @@ export type WorksMinAggregateOutputType = {
   synopsis: string | null
   word_count: number | null
   created_by: number | null
-  created_ad: Date | null
+  created_at: Date | null
 }
 
 export type WorksMaxAggregateOutputType = {
@@ -63,7 +63,7 @@ export type WorksMaxAggregateOutputType = {
   synopsis: string | null
   word_count: number | null
   created_by: number | null
-  created_ad: Date | null
+  created_at: Date | null
 }
 
 export type WorksCountAggregateOutputType = {
@@ -75,7 +75,7 @@ export type WorksCountAggregateOutputType = {
   synopsis: number
   word_count: number
   created_by: number
-  created_ad: number
+  created_at: number
   _all: number
 }
 
@@ -105,7 +105,7 @@ export type WorksMinAggregateInputType = {
   synopsis?: true
   word_count?: true
   created_by?: true
-  created_ad?: true
+  created_at?: true
 }
 
 export type WorksMaxAggregateInputType = {
@@ -117,7 +117,7 @@ export type WorksMaxAggregateInputType = {
   synopsis?: true
   word_count?: true
   created_by?: true
-  created_ad?: true
+  created_at?: true
 }
 
 export type WorksCountAggregateInputType = {
@@ -129,7 +129,7 @@ export type WorksCountAggregateInputType = {
   synopsis?: true
   word_count?: true
   created_by?: true
-  created_ad?: true
+  created_at?: true
   _all?: true
 }
 
@@ -228,7 +228,7 @@ export type WorksGroupByOutputType = {
   synopsis: string | null
   word_count: number | null
   created_by: number | null
-  created_ad: Date
+  created_at: Date
   _count: WorksCountAggregateOutputType | null
   _avg: WorksAvgAggregateOutputType | null
   _sum: WorksSumAggregateOutputType | null
@@ -263,7 +263,7 @@ export type worksWhereInput = {
   synopsis?: Prisma.StringNullableFilter<"works"> | string | null
   word_count?: Prisma.IntNullableFilter<"works"> | number | null
   created_by?: Prisma.IntNullableFilter<"works"> | number | null
-  created_ad?: Prisma.DateTimeFilter<"works"> | Date | string
+  created_at?: Prisma.DateTimeFilter<"works"> | Date | string
   user_work_logs?: Prisma.User_work_logsListRelationFilter
   work_genres?: Prisma.Work_genresListRelationFilter
   work_sources?: Prisma.Work_sourcesListRelationFilter
@@ -281,7 +281,7 @@ export type worksOrderByWithRelationInput = {
   synopsis?: Prisma.SortOrderInput | Prisma.SortOrder
   word_count?: Prisma.SortOrderInput | Prisma.SortOrder
   created_by?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_ad?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
   user_work_logs?: Prisma.user_work_logsOrderByRelationAggregateInput
   work_genres?: Prisma.work_genresOrderByRelationAggregateInput
   work_sources?: Prisma.work_sourcesOrderByRelationAggregateInput
@@ -302,7 +302,7 @@ export type worksWhereUniqueInput = Prisma.AtLeast<{
   synopsis?: Prisma.StringNullableFilter<"works"> | string | null
   word_count?: Prisma.IntNullableFilter<"works"> | number | null
   created_by?: Prisma.IntNullableFilter<"works"> | number | null
-  created_ad?: Prisma.DateTimeFilter<"works"> | Date | string
+  created_at?: Prisma.DateTimeFilter<"works"> | Date | string
   user_work_logs?: Prisma.User_work_logsListRelationFilter
   work_genres?: Prisma.Work_genresListRelationFilter
   work_sources?: Prisma.Work_sourcesListRelationFilter
@@ -320,7 +320,7 @@ export type worksOrderByWithAggregationInput = {
   synopsis?: Prisma.SortOrderInput | Prisma.SortOrder
   word_count?: Prisma.SortOrderInput | Prisma.SortOrder
   created_by?: Prisma.SortOrderInput | Prisma.SortOrder
-  created_ad?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
   _count?: Prisma.worksCountOrderByAggregateInput
   _avg?: Prisma.worksAvgOrderByAggregateInput
   _max?: Prisma.worksMaxOrderByAggregateInput
@@ -340,7 +340,7 @@ export type worksScalarWhereWithAggregatesInput = {
   synopsis?: Prisma.StringNullableWithAggregatesFilter<"works"> | string | null
   word_count?: Prisma.IntNullableWithAggregatesFilter<"works"> | number | null
   created_by?: Prisma.IntNullableWithAggregatesFilter<"works"> | number | null
-  created_ad?: Prisma.DateTimeWithAggregatesFilter<"works"> | Date | string
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"works"> | Date | string
 }
 
 export type worksCreateInput = {
@@ -348,7 +348,7 @@ export type worksCreateInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
@@ -366,7 +366,7 @@ export type worksUncheckedCreateInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
@@ -377,7 +377,7 @@ export type worksUpdateInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
@@ -395,7 +395,7 @@ export type worksUncheckedUpdateInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
@@ -410,7 +410,7 @@ export type worksCreateManyInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
 }
 
 export type worksUpdateManyMutationInput = {
@@ -418,7 +418,7 @@ export type worksUpdateManyMutationInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type worksUncheckedUpdateManyInput = {
@@ -430,7 +430,7 @@ export type worksUncheckedUpdateManyInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WorksListRelationFilter = {
@@ -457,7 +457,7 @@ export type worksCountOrderByAggregateInput = {
   synopsis?: Prisma.SortOrder
   word_count?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
-  created_ad?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
 }
 
 export type worksAvgOrderByAggregateInput = {
@@ -477,7 +477,7 @@ export type worksMaxOrderByAggregateInput = {
   synopsis?: Prisma.SortOrder
   word_count?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
-  created_ad?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
 }
 
 export type worksMinOrderByAggregateInput = {
@@ -489,7 +489,7 @@ export type worksMinOrderByAggregateInput = {
   synopsis?: Prisma.SortOrder
   word_count?: Prisma.SortOrder
   created_by?: Prisma.SortOrder
-  created_ad?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
 }
 
 export type worksSumOrderByAggregateInput = {
@@ -677,7 +677,7 @@ export type worksCreateWithoutAuthorsInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
@@ -693,7 +693,7 @@ export type worksUncheckedCreateWithoutAuthorsInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
@@ -737,7 +737,7 @@ export type worksScalarWhereInput = {
   synopsis?: Prisma.StringNullableFilter<"works"> | string | null
   word_count?: Prisma.IntNullableFilter<"works"> | number | null
   created_by?: Prisma.IntNullableFilter<"works"> | number | null
-  created_ad?: Prisma.DateTimeFilter<"works"> | Date | string
+  created_at?: Prisma.DateTimeFilter<"works"> | Date | string
 }
 
 export type worksCreateWithoutLanguagesInput = {
@@ -745,7 +745,7 @@ export type worksCreateWithoutLanguagesInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
@@ -761,7 +761,7 @@ export type worksUncheckedCreateWithoutLanguagesInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
@@ -798,7 +798,7 @@ export type worksCreateWithoutUser_work_logsInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
@@ -815,7 +815,7 @@ export type worksUncheckedCreateWithoutUser_work_logsInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
@@ -841,7 +841,7 @@ export type worksUpdateWithoutUser_work_logsInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
@@ -858,7 +858,7 @@ export type worksUncheckedUpdateWithoutUser_work_logsInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
@@ -868,7 +868,7 @@ export type worksCreateWithoutUsersInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
@@ -884,7 +884,7 @@ export type worksUncheckedCreateWithoutUsersInput = {
   original_language_id?: number | null
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
@@ -921,7 +921,7 @@ export type worksCreateWithoutWork_genresInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
@@ -938,7 +938,7 @@ export type worksUncheckedCreateWithoutWork_genresInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_sources?: Prisma.work_sourcesUncheckedCreateNestedManyWithoutWorksInput
 }
@@ -964,7 +964,7 @@ export type worksUpdateWithoutWork_genresInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
@@ -981,7 +981,7 @@ export type worksUncheckedUpdateWithoutWork_genresInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
 }
@@ -991,7 +991,7 @@ export type worksCreateWithoutWork_sourcesInput = {
   form: $Enums.work_form
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresCreateNestedManyWithoutWorksInput
   authors: Prisma.authorsCreateNestedOneWithoutWorksInput
@@ -1008,7 +1008,7 @@ export type worksUncheckedCreateWithoutWork_sourcesInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedCreateNestedManyWithoutWorksInput
   work_genres?: Prisma.work_genresUncheckedCreateNestedManyWithoutWorksInput
 }
@@ -1034,7 +1034,7 @@ export type worksUpdateWithoutWork_sourcesInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   authors?: Prisma.authorsUpdateOneRequiredWithoutWorksNestedInput
@@ -1051,7 +1051,7 @@ export type worksUncheckedUpdateWithoutWork_sourcesInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
 }
@@ -1064,7 +1064,7 @@ export type worksCreateManyAuthorsInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
 }
 
 export type worksUpdateWithoutAuthorsInput = {
@@ -1072,7 +1072,7 @@ export type worksUpdateWithoutAuthorsInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
@@ -1088,7 +1088,7 @@ export type worksUncheckedUpdateWithoutAuthorsInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
@@ -1102,7 +1102,7 @@ export type worksUncheckedUpdateManyWithoutAuthorsInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type worksCreateManyLanguagesInput = {
@@ -1113,7 +1113,7 @@ export type worksCreateManyLanguagesInput = {
   synopsis?: string | null
   word_count?: number | null
   created_by?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
 }
 
 export type worksUpdateWithoutLanguagesInput = {
@@ -1121,7 +1121,7 @@ export type worksUpdateWithoutLanguagesInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
@@ -1137,7 +1137,7 @@ export type worksUncheckedUpdateWithoutLanguagesInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
@@ -1151,7 +1151,7 @@ export type worksUncheckedUpdateManyWithoutLanguagesInput = {
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_by?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type worksCreateManyUsersInput = {
@@ -1162,7 +1162,7 @@ export type worksCreateManyUsersInput = {
   original_language_id?: number | null
   synopsis?: string | null
   word_count?: number | null
-  created_ad?: Date | string
+  created_at?: Date | string
 }
 
 export type worksUpdateWithoutUsersInput = {
@@ -1170,7 +1170,7 @@ export type worksUpdateWithoutUsersInput = {
   form?: Prisma.Enumwork_formFieldUpdateOperationsInput | $Enums.work_form
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUpdateManyWithoutWorksNestedInput
@@ -1186,7 +1186,7 @@ export type worksUncheckedUpdateWithoutUsersInput = {
   original_language_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user_work_logs?: Prisma.user_work_logsUncheckedUpdateManyWithoutWorksNestedInput
   work_genres?: Prisma.work_genresUncheckedUpdateManyWithoutWorksNestedInput
   work_sources?: Prisma.work_sourcesUncheckedUpdateManyWithoutWorksNestedInput
@@ -1200,7 +1200,7 @@ export type worksUncheckedUpdateManyWithoutUsersInput = {
   original_language_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   synopsis?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   word_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_ad?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1261,7 +1261,7 @@ export type worksSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   synopsis?: boolean
   word_count?: boolean
   created_by?: boolean
-  created_ad?: boolean
+  created_at?: boolean
   user_work_logs?: boolean | Prisma.works$user_work_logsArgs<ExtArgs>
   work_genres?: boolean | Prisma.works$work_genresArgs<ExtArgs>
   work_sources?: boolean | Prisma.works$work_sourcesArgs<ExtArgs>
@@ -1280,7 +1280,7 @@ export type worksSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   synopsis?: boolean
   word_count?: boolean
   created_by?: boolean
-  created_ad?: boolean
+  created_at?: boolean
   authors?: boolean | Prisma.authorsDefaultArgs<ExtArgs>
   users?: boolean | Prisma.works$usersArgs<ExtArgs>
   languages?: boolean | Prisma.works$languagesArgs<ExtArgs>
@@ -1295,7 +1295,7 @@ export type worksSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   synopsis?: boolean
   word_count?: boolean
   created_by?: boolean
-  created_ad?: boolean
+  created_at?: boolean
   authors?: boolean | Prisma.authorsDefaultArgs<ExtArgs>
   users?: boolean | Prisma.works$usersArgs<ExtArgs>
   languages?: boolean | Prisma.works$languagesArgs<ExtArgs>
@@ -1310,10 +1310,10 @@ export type worksSelectScalar = {
   synopsis?: boolean
   word_count?: boolean
   created_by?: boolean
-  created_ad?: boolean
+  created_at?: boolean
 }
 
-export type worksOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "form" | "author" | "original_language_id" | "synopsis" | "word_count" | "created_by" | "created_ad", ExtArgs["result"]["works"]>
+export type worksOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "form" | "author" | "original_language_id" | "synopsis" | "word_count" | "created_by" | "created_at", ExtArgs["result"]["works"]>
 export type worksInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user_work_logs?: boolean | Prisma.works$user_work_logsArgs<ExtArgs>
   work_genres?: boolean | Prisma.works$work_genresArgs<ExtArgs>
@@ -1353,7 +1353,7 @@ export type $worksPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     synopsis: string | null
     word_count: number | null
     created_by: number | null
-    created_ad: Date
+    created_at: Date
   }, ExtArgs["result"]["works"]>
   composites: {}
 }
@@ -1791,7 +1791,7 @@ export interface worksFieldRefs {
   readonly synopsis: Prisma.FieldRef<"works", 'String'>
   readonly word_count: Prisma.FieldRef<"works", 'Int'>
   readonly created_by: Prisma.FieldRef<"works", 'Int'>
-  readonly created_ad: Prisma.FieldRef<"works", 'DateTime'>
+  readonly created_at: Prisma.FieldRef<"works", 'DateTime'>
 }
     
 

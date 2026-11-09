@@ -1457,7 +1457,7 @@ export const WorksScalarFieldEnum = {
   synopsis: 'synopsis',
   word_count: 'word_count',
   created_by: 'created_by',
-  created_ad: 'created_ad'
+  created_at: 'created_at'
 } as const
 
 export type WorksScalarFieldEnum = (typeof WorksScalarFieldEnum)[keyof typeof WorksScalarFieldEnum]
