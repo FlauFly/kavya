@@ -3,6 +3,8 @@ import { genresRouter } from "./routes/genres";
 import { worksRouter } from "./routes/works";
 import { authorsRouter } from "./routes/authors";
 import { sourcesRouter } from "./routes/sources";
+import { moodsRouter } from "./routes/moods";
+import { languagesRouter } from "./routes/languages";
 
 const app = express();
 
@@ -22,6 +24,8 @@ app.use("/genres", genresRouter);
 app.use("/works", worksRouter);
 app.use("/authors", authorsRouter);
 app.use("/sources", sourcesRouter);
+app.use("/moods", moodsRouter);
+app.use("/languages", languagesRouter);
 
 // 404 handler, no routes find
 app.use((req, res) => {
