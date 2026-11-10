@@ -11,6 +11,52 @@ import { Prisma } from "../generated/prisma/client";
 
 const router = Router();
 
+// GET /user-work-logs?work_id=
+router.get("/", async (req, res, next) => {
+  try {
+    const workIdParam =
+      typeof req.query.work_id === "string" ? req.query.work_id : "";
+    const workId = Number(workIdParam);
+    if (!Number.isInteger(workId) || workId <= 0) {
+      return res.status(400).json({
+        error: {
+          message:
+            "work_id query parameter is required and must be positive integer",
+        },
+      });
+    }
+
+    const log = await prisma.user_work_logs.findUnique({
+      where: { user_id_work_id: { user_id: CURRENT_USER_ID, work_id: workId } },
+    });
+
+    if (!log) {
+      return res.json(null);
+    }
+
+    const [moodRows, languageRows] = await Promise.all([
+      prisma.log_moods.findMany({ where: { log_id: log.id } }),
+      prisma.log_languages.findMany({ where: { log_id: log.id } }),
+    ]);
+
+    const moodIds = moodRows.map((m) => m.mood_id);
+    const languageIds = languageRows.map((l) => l.language_id);
+
+    const [moods, languages] = await Promise.all([
+      moodIds.length > 0
+        ? prisma.moods.findMany({ where: { id: { in: moodIds } } })
+        : [],
+      languageIds.length > 0
+        ? prisma.languages.findMany({ where: { id: { in: languageIds } } })
+        : [],
+    ]);
+
+    res.json({ ...log, moods, languages });
+  } catch {
+    next(error);
+  }
+});
+
 // POST /user-work-logs
 router.post("/", async (req, res, next) => {
   const parsed = createUserWorkLogSchema.safeParse(req.body);
