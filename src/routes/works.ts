@@ -78,12 +78,10 @@ router.get("/:id", async (req, res, next) => {
     const sourceIds = work.work_sources.map((ws) => ws.source_id);
     const genreIds = work.work_genres.map((wg) => wg.genre_id);
 
-    const sources = await Promise.all([
+    const [sources, genres] = await Promise.all([
       sourceIds.length > 0
         ? prisma.sources.findMany({ where: { id: { in: sourceIds } } })
         : [],
-    ]);
-    const genres = await Promise.all([
       genreIds.length > 0
         ? prisma.genres.findMany({ where: { id: { in: genreIds } } })
         : [],
