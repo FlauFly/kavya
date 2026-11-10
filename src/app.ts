@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { genresRouter } from "./routes/genres";
 import { worksRouter } from "./routes/works";
 import { authorsRouter } from "./routes/authors";
@@ -10,6 +11,7 @@ import { userWorkLogsRouter } from "./routes/user-work-logs";
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
