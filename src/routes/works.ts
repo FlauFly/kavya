@@ -5,17 +5,24 @@ import z from "zod";
 
 const router = Router();
 
-// GET /works
+// GET /works?search= &limit=
 router.get("/", async (req, res, next) => {
   try {
     const search =
       typeof req.query.search === "string" ? req.query.search.trim() : "";
+    const form = typeof req.query.form === "string" ? req.query.form : "";
     const limitParam =
       typeof req.query.limit === "string" ? parseInt(req.query.limit, 10) : NaN;
     const limit =
       Number.isFinite(limitParam) && limitParam > 0 && limitParam <= 100
         ? limitParam
         : 50;
+
+    if (form && form !== "short_story" && form !== "poetry") {
+      return res
+        .status(400)
+        .json({ error: { message: "form must be 'short_story' or 'poetry'" } });
+    }
 
     let matchingSourceIds: number[] = [];
     if (search) {
@@ -26,24 +33,26 @@ router.get("/", async (req, res, next) => {
       matchingSourceIds = sources.map((s) => s.id);
     }
 
+    const where: any = {};
+    if (form) where.form = form;
+    if (search) {
+      where.OR = [
+        { title: { contains: search, mode: "insensitive" } },
+        { authors: { name: { contains: search, mode: "insensitive" } } },
+        ...(matchingSourceIds.length > 0
+          ? [
+              {
+                work_sources: {
+                  some: { source_id: { in: matchingSourceIds } },
+                },
+              },
+            ]
+          : []),
+      ];
+    }
+
     const works = await prisma.works.findMany({
-      where: search
-        ? {
-            OR: [
-              { title: { contains: search, mode: "insensitive" } },
-              { authors: { name: { contains: search, mode: "insensitive" } } },
-              ...(matchingSourceIds.length > 0
-                ? [
-                    {
-                      work_sources: {
-                        some: { source_id: { in: matchingSourceIds } },
-                      },
-                    },
-                  ]
-                : []),
-            ],
-          }
-        : undefined,
+      where: Object.keys(where).length > 0 ? where : undefined,
       include: { authors: true },
       orderBy: { title: "asc" },
       take: limit,

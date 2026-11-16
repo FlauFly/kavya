@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { apiGet } from "../lib/api";
 import type { Work } from "../types";
+import { LogForm } from "../components/LogForm";
 
 export function WorkDetail() {
   const { id } = useParams();
@@ -55,6 +56,7 @@ export function WorkDetail() {
       )}
 
       {work.word_count && <p>Word count: {work.word_count}</p>}
+      <LogForm workId={work.id} />
     </div>
   );
 }

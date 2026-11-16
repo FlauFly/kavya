@@ -104,7 +104,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// PATCH /user-work-logs
+// PATCH /user-work-logs/:id
 router.patch("/:id", async (req, res, next) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
@@ -159,6 +159,26 @@ router.patch("/:id", async (req, res, next) => {
     }
 
     res.json(updated);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// DELETE /user-work-logs/:id
+router.delete("/:id", async (req, res, next) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ error: { message: "Invalid id " } });
+  }
+
+  try {
+    const existing = await prisma.user_work_logs.findUnique({ where: { id } });
+    if (!existing || existing.user_id !== CURRENT_USER_ID) {
+      return res.status(404).json({ error: { message: "Log not found" } });
+    }
+
+    await prisma.user_work_logs.delete({ where: { id } });
+    res.status(204).send();
   } catch (error) {
     next(error);
   }
