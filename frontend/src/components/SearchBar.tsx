@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { apiGet } from "../lib/api";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 type SearchResult = {
   id: number;
@@ -13,6 +14,7 @@ export function SearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +38,10 @@ export function SearchBar() {
     return () => clearTimeout(handle);
   }, [query]);
 
+  // Close suggestion box when clicking outside
+  const close = useCallback(() => setOpen(false), []);
+  useClickOutside(rootRef, close);
+
   function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (query.trim()) {
@@ -45,7 +51,7 @@ export function SearchBar() {
   }
 
   return (
-    <div style={{ position: "relative" }}>
+    <div ref={rootRef} style={{ position: "relative" }}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

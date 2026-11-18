@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router";
 import { apiGet } from "../lib/api";
 import type { Work } from "../types";
-import { LogForm } from "../components/LogForm";
+import { ShelfButton } from "../components/ShelfButton";
 
 export function WorkDetail() {
   const { id } = useParams();
@@ -17,6 +17,20 @@ export function WorkDetail() {
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, [id]);
+
+  type LogRef = { id: number; status: "want_to_read" | "read" };
+  const [log, setLog] = useState<LogRef | null>(null);
+
+  const fetchLog = useCallback(() => {
+    if (!id) return;
+    apiGet<LogRef | null>(`/user-work-logs?work_id=${id}`)
+      .then(setLog)
+      .catch(() => setLog(null));
+  }, [id]);
+
+  useEffect(() => {
+    fetchLog();
+  }, [fetchLog]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -56,7 +70,7 @@ export function WorkDetail() {
       )}
 
       {work.word_count && <p>Word count: {work.word_count}</p>}
-      <LogForm workId={work.id} />
+      <ShelfButton workId={work.id} log={log} onChanged={fetchLog} />
     </div>
   );
 }

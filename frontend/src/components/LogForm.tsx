@@ -12,9 +12,9 @@ type Log = {
   languages: Language[];
 };
 
-type Props = { workId: number };
+type Props = { workId: number; onSaved?: () => void };
 
-export function LogForm({ workId }: Props) {
+export function LogForm({ workId, onSaved }: Props) {
   const [existing, setExisting] = useState<Log | null>(null);
   const [moods, setMoods] = useState<Mood[]>([]);
   const [languages, setLanguages] = useState<Language[]>([]);
@@ -66,11 +66,13 @@ export function LogForm({ workId }: Props) {
 
     try {
       if (existing) {
-        (await apiPatch(`/user-work-logs/${existing.id}`, body),
-          setMessage("Saved"));
+        await apiPatch(`/user-work-logs/${existing.id}`, body);
+        setMessage("Saved");
+        onSaved?.();
       } else {
         await apiPost("/user-work-logs", { ...body, work_id: workId });
         setMessage("Logged");
+        onSaved?.();
         // refetch to get the new id for future edits
         const log = await apiGet<Log | null>(
           `/user-work-logs?work_id=${workId}`,
